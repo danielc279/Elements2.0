@@ -13,8 +13,6 @@ public class PlayerMovement : BaseCharacterMovement
 	[SerializeField]
 	private float movementSpeed = 5f;
 
-	private bool facingRight;
-
 	[SerializeField]
 	public bool isGrounded = true;
 
@@ -23,6 +21,9 @@ public class PlayerMovement : BaseCharacterMovement
 
 	void Start()
 	{
+		GameManager.lastLevelPlayed = SceneManager.GetActiveScene().name;
+
+
 		myRigidbody = GetComponent<Rigidbody2D>();
 		myAnimator = GetComponent<Animator>();
 	}

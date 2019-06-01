@@ -24,18 +24,9 @@ public abstract class BaseCharacterMovement : MonoBehaviour
 	}
 
 
-
-	private void OnTriggerEnter2D(Collider2D other)
-	{
-		if (other.gameObject.CompareTag("danger"))
-		{
-			Kill();
-		}
-	}
-
 	protected virtual void Kill()
     {
-		SceneManager.LoadScene(7);
+		SceneManager.LoadScene("LevelComplete");
     }
 
 }

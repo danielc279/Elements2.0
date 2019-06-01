@@ -8,86 +8,47 @@ public class Interaction : BaseCharacterMovement
 {
 
 	[SerializeField]
-	private bool isGrounded;
+	private bool _isGrounded;
 
-    private GameObject Battery1;
+    private ScoreManager _scoreManager;
 
-    private GameObject Battery2;
-    private GameObject Battery3;
-
-    public float star1;
-    public float star2;
-    public float star3;
-
-    private float userscore;
-
-    [SerializeField]
-    public int battery;
-	void Start()
-	{
-        battery = 0;
-        Battery1 = GameObject.Find("Battery1");
-        Battery2 = GameObject.Find("Battery2");
-        Battery3 = GameObject.Find("Battery3");
-        Battery1.SetActive(false);
-        Battery2.SetActive(false);
-        Battery3.SetActive(false);
-	}
+    void Start(){
+        _scoreManager = GetComponent<ScoreManager>();
+    }
 
 	void Update()
 	{
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 0.3f);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.GetChild(2).transform.position, 0.3f);
 
         for (int i = 0; i < hitColliders.Length; i++)
         {
             if (hitColliders[i].gameObject.tag == "battery")
             {
-            battery +=1;
-			Destroy (hitColliders[i].gameObject);
-
-                if (battery == 1)
-                {
-                Battery1.SetActive(true);
-                }
-
-                if (battery == 2)
-                {
-                Battery2.SetActive(true);
-                }
-
-                if (battery == 3)
-                {
-                Battery3.SetActive(true);
-                }
+                Destroy(hitColliders[i].gameObject);
+                _scoreManager.BatteryCollection();
 
             }
 
             if (hitColliders[i].gameObject.tag == "enemy")
             {
-                  SceneManager.LoadScene(7);
+                ScoreManager.complete = false;
+                SceneManager.LoadScene("LevelComplete");
             }
 
             if (hitColliders[i].gameObject.tag == "danger")
             {
-                  Kill();
+                ScoreManager.complete = false;
+                Kill();
             }
         }
 	}
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-
-        if (other.gameObject.CompareTag("door") && battery == 3)
+        if (other.gameObject.CompareTag("door") && _scoreManager.batteries == 3)
         {
-            SceneManager.LoadScene(6);
+            ScoreManager.complete = true;
+            SceneManager.LoadScene("LevelComplete");
         }
 	}
-
-    public void Stars()
-    {
-        if (userscore < star1)
-        {
-
-        }
-    }
 }

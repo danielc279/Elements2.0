@@ -15,13 +15,23 @@ public class EnemyFollow : BaseCharacterMovement
 	}
 
     void Update(){
-
+		Debug.Log(Vector3.Distance(_target.position, transform.position));
 		if (Vector3.Distance(_target.position, transform.position) <= 4.0f){
 			transform.position = Vector2.MoveTowards(transform.position, _target.position, speed * Time.deltaTime);
 		}
 
 		// _animator.SetFloat("speed", Mathf.Abs(horizontal));
 		Flip((transform.position.x - _target.position.x) > 0f);
+
+		Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.GetChild(2).transform.position, 0.3f);
+
+        for (int i = 0; i < hitColliders.Length; i++)
+        {
+            if (hitColliders[i].gameObject.tag == "danger")
+            {
+                Kill();
+            }
+        }
     }
 
 	override protected void Kill()
