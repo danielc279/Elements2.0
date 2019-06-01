@@ -7,36 +7,50 @@ using TMPro;
 
 //Game Modes: Title Screen, Level Select, Play Level, Game Over
 public class GameManager : MonoBehaviour {
-
-   	public TextMeshProUGUI scoreTexts;
 	
-	public void levelButtonPress()
+	public static string lastLevelPlayed { get; set; }
+
+	public void LevelSelect()
 	{
-		SceneManager.LoadScene(2);
+		SceneManager.LoadScene("LevelSelect");
 	}
 
-	public void instructionButtonPress()
+	public void Instructions()
 	{
-		SceneManager.LoadScene(1);
+		SceneManager.LoadScene("Instructions");
 	}
 
-    public void retryButtonPress()
+    public void RetryLevel()
+	{
+		SceneManager.LoadScene(lastLevelPlayed);
+	}
+
+    public void playLevel1()
 	{
 		SceneManager.LoadScene(3);
 	}
 
-    public void level1ButtonPress()
-	{
-		SceneManager.LoadScene(3);
-	}
-
-    public void level2ButtonPress()
+    public void playLevel2()
 	{
 		SceneManager.LoadScene(4);
 	}
 
-    public void level3ButtonPress()
+    public void playLevel3()
 	{
 		SceneManager.LoadScene(5);
+	}
+
+	public void PlayGame(){
+		
+	}
+
+	public void	NextLevel(){
+		if(lastLevelPlayed != "Level3"){
+			if(lastLevelPlayed == "Level1"){
+				playLevel2();
+			}else{
+				playLevel3();
+			}
+		}
 	}
 }

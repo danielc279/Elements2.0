@@ -35,7 +35,7 @@ public abstract class BaseCharacterMovement : MonoBehaviour
 
 	protected virtual void Kill()
     {
-		SceneManager.LoadScene(7);
+		SceneManager.LoadScene("LevelComplete");
     }
 
 }
