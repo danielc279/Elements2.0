@@ -10,10 +10,10 @@ public class Interaction : BaseCharacterMovement
 	[SerializeField]
 	private bool _isGrounded;
 
-    private ScoreManager _scoreManager;
+    private ScoreManager _ScoreMan;
 
     void Start(){
-        _scoreManager = GetComponent<ScoreManager>();
+        _ScoreMan = GameObject.FindObjectOfType<ScoreManager>();
     }
 
 	void Update()
@@ -25,7 +25,7 @@ public class Interaction : BaseCharacterMovement
             if (hitColliders[i].gameObject.tag == "battery")
             {
                 Destroy(hitColliders[i].gameObject);
-                _scoreManager.BatteryCollection();
+                _ScoreMan.BatteryCollection();
 
             }
 
@@ -45,7 +45,7 @@ public class Interaction : BaseCharacterMovement
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-        if (other.gameObject.CompareTag("door") && _scoreManager.batteries == 3)
+        if (other.gameObject.CompareTag("door") && _ScoreMan.batteries == 3)
         {
             ScoreManager.complete = true;
             SceneManager.LoadScene("LevelComplete");

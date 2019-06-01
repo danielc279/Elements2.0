@@ -264,9 +264,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78eaafda3483d34b884eb803c9cd7ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  batteries: 0
   battery1: {fileID: 2092041233}
   battery2: {fileID: 2092041233}
   battery3: {fileID: 278354005}
+  scoreText: {fileID: 0}
 --- !u!1 &278354005
 GameObject:
   m_ObjectHideFlags: 0
@@ -351,6 +353,7 @@ GameObject:
   m_Component:
   - component: {fileID: 292632295}
   - component: {fileID: 292632294}
+  - component: {fileID: 292632296}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -384,6 +387,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &292632296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 292632293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c78eaafda3483d34b884eb803c9cd7ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  batteries: 0
+  battery1: {fileID: 0}
+  battery2: {fileID: 0}
+  battery3: {fileID: 0}
+  scoreText: {fileID: 1379639232}
 --- !u!1 &456583461
 GameObject:
   m_ObjectHideFlags: 0

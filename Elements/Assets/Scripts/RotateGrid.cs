@@ -24,7 +24,7 @@ public class RotateGrid : MonoBehaviour
 
     private int _sendScore = 0;
 
-    private ScoreManager _scoreManager;
+    private ScoreManager _ScoreMan;
     void Start()
     {
 
@@ -33,20 +33,20 @@ public class RotateGrid : MonoBehaviour
         _PlayerMov = player.GetComponent<PlayerMovement>();
         _Animator = player.GetComponent<Animator>();
 
-        _scoreManager = FindObjectOfType<ScoreManager>();
+        _ScoreMan = FindObjectOfType<ScoreManager>();
     }
 
     void Update (){
         if (Input.GetKeyDown(KeyCode.C) && !is_Rotating && _PlayerMov.isGrounded) { 
             _totalRotations++;
             if(_totalRotations < 10){ _sendScore = 3; }else{ _sendScore = 1; }
-            _scoreManager.UpdateScore(_sendScore);
+            _ScoreMan.UpdateScore(_sendScore);
             StartCoroutine(RotateObject(1, 1, 89));
         }
         if (Input.GetKeyDown(KeyCode.V) && !is_Rotating && _PlayerMov.isGrounded) {
             _totalRotations++;
             if(_totalRotations < 10){ _sendScore = 3; }else{ _sendScore = 1; }
-            _scoreManager.UpdateScore(_sendScore);
+            _ScoreMan.UpdateScore(_sendScore);
             StartCoroutine(RotateObject(1, -1,-89));
 
         }
