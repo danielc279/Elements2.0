@@ -14,6 +14,7 @@ public class Interaction : BaseCharacterMovement
 
     void Start(){
         _ScoreMan = GameObject.FindObjectOfType<ScoreManager>();
+        ScoreManager.complete = 0;
     }
 
 	void Update()
@@ -31,13 +32,13 @@ public class Interaction : BaseCharacterMovement
 
             if (hitColliders[i].gameObject.tag == "enemy")
             {
-                ScoreManager.complete = false;
+                PlayerPrefs.SetInt("Complete", ScoreManager.complete);
                 SceneManager.LoadScene("LevelComplete");
             }
 
             if (hitColliders[i].gameObject.tag == "danger")
             {
-                ScoreManager.complete = false;
+                PlayerPrefs.SetInt("Complete", ScoreManager.complete);
                 Kill();
             }
         }
@@ -47,7 +48,9 @@ public class Interaction : BaseCharacterMovement
 	{
         if (other.gameObject.CompareTag("door") && _ScoreMan.batteries == 3)
         {
-            ScoreManager.complete = true;
+            ScoreManager.complete = 1;
+            PlayerPrefs.SetInt("Complete", ScoreManager.complete);
+            _ScoreMan.SaveScore();
             SceneManager.LoadScene("LevelComplete");
         }
 	}

@@ -15,7 +15,6 @@ public class EnemyFollow : BaseCharacterMovement
 	}
 
     void Update(){
-		Debug.Log(Vector3.Distance(_target.position, transform.position));
 		if (Vector3.Distance(_target.position, transform.position) <= 4.0f){
 			transform.position = Vector2.MoveTowards(transform.position, _target.position, speed * Time.deltaTime);
 		}

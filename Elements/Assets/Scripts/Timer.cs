@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour
  
     void Update(){
         if(timeLeft == 0){
-            ScoreManager.complete = false;
+            PlayerPrefs.SetInt("Complete", ScoreManager.complete);
             SceneManager.LoadScene("LevelComplete");
         } 
     }

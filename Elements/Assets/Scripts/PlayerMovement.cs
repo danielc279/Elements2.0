@@ -21,7 +21,6 @@ public class PlayerMovement : BaseCharacterMovement
 
 	void Start()
 	{
-		GameManager.lastLevelPlayed = SceneManager.GetActiveScene().name;
 
 
 		myRigidbody = GetComponent<Rigidbody2D>();

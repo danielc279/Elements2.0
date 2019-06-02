@@ -11,7 +11,7 @@ public class ScoreManager : MonoBehaviour{
     [SerializeField]
     public int batteries;
 
-    public static bool complete { get; set; }
+    public static int complete { get; set; }
 
     public GameObject battery1;
     public GameObject battery2;
@@ -19,11 +19,21 @@ public class ScoreManager : MonoBehaviour{
 
     public TextMeshProUGUI scoreText;
 
+    public TextMeshProUGUI finalScoreText;
+
+    public TextMeshProUGUI youLose;
+
+    public TextMeshProUGUI youWin;
+
     //private List<GameObject> batteryPack;
     
     void Start(){
 
         scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
+
+        finalScoreText = GameObject.Find("FinalScoreText").GetComponent<TextMeshProUGUI>();
+        youLose = GameObject.Find("YouLose").GetComponent<TextMeshProUGUI>();
+        youWin = GameObject.Find("LevelComplete").GetComponent<TextMeshProUGUI>();
 
         batteries = 0;
         // batteryPack = new List<GameObject> { battery1, battery2, battery3 };
@@ -33,8 +43,6 @@ public class ScoreManager : MonoBehaviour{
         //         battery.SetActive(false);
         //     }
         // }
-
-        //if(SceneManager.GetActiveScene().name == "LevelComplete") LevelComplete();
     }
 
     public void BatteryCollection(){
@@ -43,20 +51,14 @@ public class ScoreManager : MonoBehaviour{
         UpdateScore(10);
     }
 
-    public void LevelComplete(){
-
-        if(complete){
-            GameObject.Find("YouLose").SetActive(false);
-
-            GameObject.Find("FinalScoreText").GetComponent<TextMeshProUGUI>().SetText(score.ToString());
-        }else{
-            GameObject.Find("LevelComplete").SetActive(false);
-        }
-
-    }
+    
 
     public void UpdateScore(int points){
         score += points;
         scoreText.SetText(score.ToString());
+    }
+
+    public void SaveScore(){
+        PlayerPrefs.SetInt("LastScore", score);
     }
 }
