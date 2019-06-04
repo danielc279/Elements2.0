@@ -11,6 +11,8 @@ TagManager:
   - background
   - battery1
   - danger
+  - wall
+  - button
   layers:
   - Default
   - TransparentFX

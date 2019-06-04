@@ -10,6 +10,8 @@ public class Interaction : BaseCharacterMovement
 	[SerializeField]
 	private bool _isGrounded;
 
+    private int level;
+
     private ScoreManager _ScoreMan;
 
     void Start(){
@@ -46,12 +48,12 @@ public class Interaction : BaseCharacterMovement
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
-        if (other.gameObject.CompareTag("door") && _ScoreMan.batteries == 3)
+        if (other.gameObject.CompareTag("door"))
         {
             ScoreManager.complete = 1;
             PlayerPrefs.SetInt("Complete", ScoreManager.complete);
             _ScoreMan.SaveScore();
-            SceneManager.LoadScene("LevelComplete");
+            SceneManager.LoadScene("LevelComplete");             
         }
 	}
 }

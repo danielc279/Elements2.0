@@ -32,7 +32,7 @@ public class PlayerMovement : BaseCharacterMovement
 		float horizontal = Input.GetAxis("Horizontal");
 		HandleMovement(horizontal);
 
-		Flip((myRigidbody.velocity.x) < 0f);
+		Flip(myRigidbody.velocity.x < 0f);
 
 		if(Input.GetButtonDown("Jump"))
 		{
@@ -43,6 +43,9 @@ public class PlayerMovement : BaseCharacterMovement
 	private void HandleMovement(float horizontal)
 	{
 		myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y); //x-1, y = 0;
+
+
+		
 
 		myAnimator.SetBool("Moving", Mathf.Abs(myRigidbody.velocity.x) > 0);
 		myAnimator.SetBool("Jumping", !isGrounded);
@@ -76,6 +79,8 @@ public class PlayerMovement : BaseCharacterMovement
 		isGrounded = false;
 		}
 	}
+
+	
 
 
 

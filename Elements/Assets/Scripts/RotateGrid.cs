@@ -39,13 +39,13 @@ public class RotateGrid : MonoBehaviour
     void Update (){
         if (Input.GetKeyDown(KeyCode.C) && !is_Rotating && _PlayerMov.isGrounded) { 
             _totalRotations++;
-            if(_totalRotations < 10){ _sendScore = 3; }else{ _sendScore = 1; }
+            _sendScore = -1;
             _ScoreMan.UpdateScore(_sendScore);
             StartCoroutine(RotateObject(1, 1, 89));
         }
         if (Input.GetKeyDown(KeyCode.V) && !is_Rotating && _PlayerMov.isGrounded) {
             _totalRotations++;
-            if(_totalRotations < 10){ _sendScore = 3; }else{ _sendScore = 1; }
+            _sendScore = -1;
             _ScoreMan.UpdateScore(_sendScore);
             StartCoroutine(RotateObject(1, -1,-89));
 
