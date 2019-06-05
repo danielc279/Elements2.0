@@ -8,7 +8,7 @@ public class RotateGrid : MonoBehaviour
 {
 // duration of the rotation in seconds, can be set via Inspector
 
-    private bool is_Rotating = false;
+    public bool is_Rotating = false;
 
     private GameObject player;
 

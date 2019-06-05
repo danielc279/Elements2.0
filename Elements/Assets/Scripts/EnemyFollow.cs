@@ -7,6 +7,7 @@ public class EnemyFollow : BaseCharacterMovement{
 
     private GameObject[] _spikes;
 
+	public RotateGrid rotateGrid;
     private Transform _target;
 
 	public GameObject left;
@@ -18,6 +19,7 @@ public class EnemyFollow : BaseCharacterMovement{
 	public GameObject wall;
 
 	void Start(){
+		rotateGrid = GameObject.Find("Grid").GetComponent<RotateGrid>();
 		left = GameObject.Find("LeftCheck");
 		right = GameObject.Find("RightCheck");
         _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -28,7 +30,7 @@ public class EnemyFollow : BaseCharacterMovement{
 
     void Update(){
 
-		if (Vector3.Distance(_target.position, transform.position) <= 4.0f){
+		if (Vector3.Distance(_target.position, transform.position) <= 4.0f && !rotateGrid.is_Rotating){
 			//Check if the rays hit 
 			if(Physics2D.Raycast(left.transform.position, Vector2.down, 0.01f))
 			{
