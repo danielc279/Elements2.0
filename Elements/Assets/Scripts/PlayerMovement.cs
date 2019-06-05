@@ -19,47 +19,49 @@ public class PlayerMovement : BaseCharacterMovement
 	[SerializeField]
 	private float initialJumpPower = 500f;
 
-	void Start()
-	{
+	public Interaction _Interact;
 
+	void Start(){
 
 		myRigidbody = GetComponent<Rigidbody2D>();
 		myAnimator = GetComponent<Animator>();
+		_Interact = GetComponent<Interaction>();
 	}
 
 	void FixedUpdate()
 	{
-		float horizontal = Input.GetAxis("Horizontal");
-		HandleMovement(horizontal);
-
-		Flip(myRigidbody.velocity.x < 0f);
-
-		if(Input.GetButtonDown("Jump"))
+		if(_Interact._isDead == false)
 		{
-			Jump();
+			float horizontal = Input.GetAxis("Horizontal");
+			HandleMovement(horizontal);
+
+			Flip(myRigidbody.velocity.x < 0f);
+
+			if(Input.GetButtonDown("Jump"))
+			{
+				Jump();
+			}
 		}
 	}
 
 	private void HandleMovement(float horizontal)
 	{
-		myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y); //x-1, y = 0;
 
+			myRigidbody.velocity = new Vector2(horizontal * movementSpeed, myRigidbody.velocity.y); //x-1, y = 0;
+			myAnimator.SetBool("Moving", Mathf.Abs(myRigidbody.velocity.x) > 0);
+			myAnimator.SetBool("Jumping", !isGrounded);
 
-		
-
-		myAnimator.SetBool("Moving", Mathf.Abs(myRigidbody.velocity.x) > 0);
-		myAnimator.SetBool("Jumping", !isGrounded);
 		
 	}
 
 	private void Jump()
 	{
-		if(isGrounded == true)
-		{
-			myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, 0);
-            myRigidbody.AddForce(Vector2.up * initialJumpPower);
-		}
-		
+
+			if(isGrounded == true)
+			{
+				myRigidbody.velocity = new Vector2(myRigidbody.velocity.x, 0);
+				myRigidbody.AddForce(Vector2.up * initialJumpPower);
+			}		
 	}
 
 	

@@ -361,7 +361,6 @@ GameObject:
   - component: {fileID: 161678852}
   - component: {fileID: 161678851}
   - component: {fileID: 161678850}
-  - component: {fileID: 161678856}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -482,30 +481,13 @@ RectTransform:
   - {fileID: 617825893}
   - {fileID: 540271017}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &161678856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 161678849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c78eaafda3483d34b884eb803c9cd7ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startScore: 0
-  scoreText: {fileID: 0}
-  finalScoreText: {fileID: 0}
-  youLose: {fileID: 0}
-  youWin: {fileID: 0}
 --- !u!1 &237248179
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +500,7 @@ GameObject:
   - component: {fileID: 237248182}
   - component: {fileID: 237248181}
   m_Layer: 0
-  m_Name: Star2
+  m_Name: StarGame2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -592,7 +574,7 @@ GameObject:
   - component: {fileID: 278354008}
   - component: {fileID: 278354007}
   m_Layer: 0
-  m_Name: Star3
+  m_Name: StarLevel3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -654,68 +636,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278354005}
   m_CullTransparentMesh: 0
---- !u!1 &292632293
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 292632295}
-  - component: {fileID: 292632294}
-  - component: {fileID: 292632296}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &292632294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292632293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3624ad8dfd3b0a04dabf024e248664bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _ScoreMan: {fileID: 0}
-  two: {fileID: 0}
-  three: {fileID: 0}
---- !u!4 &292632295
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292632293}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -251.5231, y: 25.67455, z: -7.927512}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &292632296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292632293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17eeeb194df2ab54181194c8c2dfa661, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  finalScoreText: {fileID: 0}
-  gameEndScoreText: {fileID: 0}
-  finalScore: 0
 --- !u!1 &313909043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1051,7 +971,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &540271016
 GameObject:
@@ -1276,7 +1196,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
+    m_Font: {fileID: 12800000, guid: 92323d4a20575224eb4e8a5d15c4e7cf, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -1518,7 +1438,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
+    m_Font: {fileID: 12800000, guid: 92323d4a20575224eb4e8a5d15c4e7cf, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -1618,7 +1538,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 292632294}
+      - m_Target: {fileID: 1583605145}
         m_MethodName: LevelSelect
         m_Mode: 1
         m_Arguments:
@@ -1822,7 +1742,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1030714663
 GameObject:
@@ -1903,7 +1823,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 292632294}
+      - m_Target: {fileID: 1583605145}
         m_MethodName: LevelSelect
         m_Mode: 1
         m_Arguments:
@@ -2287,7 +2207,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
+    m_Font: {fileID: 12800000, guid: 92323d4a20575224eb4e8a5d15c4e7cf, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -2320,7 +2240,7 @@ GameObject:
   - component: {fileID: 1251981358}
   - component: {fileID: 1251981357}
   m_Layer: 0
-  m_Name: Star1
+  m_Name: StarGame1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2461,7 +2381,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 292632294}
+      - m_Target: {fileID: 1583605145}
         m_MethodName: playNext
         m_Mode: 1
         m_Arguments:
@@ -2523,7 +2443,7 @@ GameObject:
   - component: {fileID: 1272455316}
   - component: {fileID: 1272455315}
   m_Layer: 0
-  m_Name: Star3
+  m_Name: StarGame3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2878,7 +2798,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
+    m_Font: {fileID: 12800000, guid: 92323d4a20575224eb4e8a5d15c4e7cf, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -2899,6 +2819,115 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483366956}
   m_CullTransparentMesh: 0
+--- !u!1001 &1583605136
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1253620907331434579, guid: c5d8d54f32279a74b8286b2d739593ea,
+        type: 3}
+      propertyPath: m_Name
+      value: GameManager (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253620907331434577, guid: c5d8d54f32279a74b8286b2d739593ea,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -251.5231
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253620907331434577, guid: c5d8d54f32279a74b8286b2d739593ea,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 25.67455
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253620907331434577, guid: c5d8d54f32279a74b8286b2d739593ea,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.927512
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253620907331434577, guid: c5d8d54f32279a74b8286b2d739593ea,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253620907331434577, guid: c5d8d54f32279a74b8286b2d739593ea,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253620907331434577, guid: c5d8d54f32279a74b8286b2d739593ea,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253620907331434577, guid: c5d8d54f32279a74b8286b2d739593ea,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253620907331434577, guid: c5d8d54f32279a74b8286b2d739593ea,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253620907331434577, guid: c5d8d54f32279a74b8286b2d739593ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253620907331434577, guid: c5d8d54f32279a74b8286b2d739593ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253620907331434577, guid: c5d8d54f32279a74b8286b2d739593ea,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1253620907331434574, guid: c5d8d54f32279a74b8286b2d739593ea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7250140959999995125, guid: c5d8d54f32279a74b8286b2d739593ea, type: 3}
+    - {fileID: 5235606796415018954, guid: c5d8d54f32279a74b8286b2d739593ea, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: c5d8d54f32279a74b8286b2d739593ea, type: 3}
+--- !u!1 &1583605137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1253620907331434579, guid: c5d8d54f32279a74b8286b2d739593ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1583605136}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1583605138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583605137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17eeeb194df2ab54181194c8c2dfa661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  finalScoreText: {fileID: 0}
+  gameEndScoreText: {fileID: 0}
+  finalScore: 0
+--- !u!114 &1583605145 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1253620907331434576, guid: c5d8d54f32279a74b8286b2d739593ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1583605136}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583605137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3624ad8dfd3b0a04dabf024e248664bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1680504443
 GameObject:
   m_ObjectHideFlags: 0
@@ -2978,7 +3007,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 292632294}
+      - m_Target: {fileID: 1583605145}
         m_MethodName: RetryLevel
         m_Mode: 1
         m_Arguments:
@@ -3040,7 +3069,7 @@ GameObject:
   - component: {fileID: 1755544852}
   - component: {fileID: 1755544851}
   m_Layer: 0
-  m_Name: Star1
+  m_Name: StarLevel1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3469,7 +3498,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c9f6d0e7bc8541498c9a4799ba184ede, type: 3}
+    m_Font: {fileID: 12800000, guid: 92323d4a20575224eb4e8a5d15c4e7cf, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -3502,7 +3531,7 @@ GameObject:
   - component: {fileID: 2092041236}
   - component: {fileID: 2092041235}
   m_Layer: 0
-  m_Name: Star2
+  m_Name: StarLevel2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3643,7 +3672,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 292632294}
+      - m_Target: {fileID: 1583605145}
         m_MethodName: BackToMain
         m_Mode: 1
         m_Arguments:

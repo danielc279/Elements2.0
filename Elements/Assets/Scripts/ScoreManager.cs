@@ -28,13 +28,17 @@ public class ScoreManager : MonoBehaviour{
     //private List<GameObject> batteryPack;
     
     void Start(){
-
+		Scene scene = SceneManager.GetActiveScene();
         score = startScore;
+        if(scene.name == "Level1" || scene.name == "Level2" ||scene.name == "Level3"){
         scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
         scoreText.SetText(score.ToString());
+        }
+        if(scene.name == "LevelComplete"){
         finalScoreText = GameObject.Find("FinalScoreText").GetComponent<TextMeshProUGUI>();
         youLose = GameObject.Find("YouLose").GetComponent<TextMeshProUGUI>();
         youWin = GameObject.Find("LevelComplete").GetComponent<TextMeshProUGUI>();
+        }
 
     }
 
@@ -63,10 +67,10 @@ public class ScoreManager : MonoBehaviour{
         startScore = PlayerPrefs.GetInt("StartScoreLevel1", 10);
         }
         if(PlayerPrefs.GetInt("LastLevel") == 2){
-        startScore = PlayerPrefs.GetInt("StartScoreLevel1", 12);
+        startScore = PlayerPrefs.GetInt("StartScoreLevel1", 10);
         }
         if(PlayerPrefs.GetInt("LastLevel") == 3){
-        startScore = PlayerPrefs.GetInt("StartScoreLevel1", 15);
+        startScore = PlayerPrefs.GetInt("StartScoreLevel1", 10);
         }
         score = startScore;
     }

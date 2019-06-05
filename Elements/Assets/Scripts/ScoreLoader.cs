@@ -17,9 +17,12 @@ public class ScoreLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        finalScore = PlayerPrefs.GetInt("LastScore", 0);
+    	Scene scene = SceneManager.GetActiveScene();    
+        finalScore = PlayerPrefs.GetInt("LastScore", 0);        
+        if(scene.name == "LevelComplete"){
         finalScoreText = GameObject.Find("FinalScoreText").GetComponent<TextMeshProUGUI>();
         finalScoreText.SetText(finalScore.ToString());
+        }
         gameEndScoreText = GameObject.Find("GameEndScoreText").GetComponent<TextMeshProUGUI>();
         gameEndScoreText.SetText(finalScore.ToString());
         complete = PlayerPrefs.GetInt("Complete", 0);
@@ -38,16 +41,21 @@ public class ScoreLoader : MonoBehaviour
                 int high1 = PlayerPrefs.GetInt("HighLevel1", 0);
                 if(finalScore > high1){
                     PlayerPrefs.SetInt("HighLevel1", finalScore);
-                    if(finalScore < 4)
-                    {
-                     GameObject.Find("Star2").SetActive(false);
-                    }
-                    if(finalScore < 8)
-                    {
-                     GameObject.Find("Star3").SetActive(false);
-                    }
+                   
                 }
+                if(PlayerPrefs.GetInt("LastScore", 0) < 8)
+                {
+                    GameObject.Find("StarLevel2").SetActive(false);
+                }
+                if(PlayerPrefs.GetInt("LastScore", 0) < 11)
+                {
+                    GameObject.Find("StarLevel3").SetActive(false);
+                }
+                if (PlayerPrefs.GetInt("LevelsUnlocked", 0 ) < last1)
+                {
                 PlayerPrefs.SetInt("LevelsUnlocked", last1 + 1);
+                }
+
                 
             }
             if(PlayerPrefs.GetInt("LastLevel") == 2){
@@ -58,14 +66,14 @@ public class ScoreLoader : MonoBehaviour
                 int high2 = PlayerPrefs.GetInt("HighLevel2", 0);
                 if(finalScore > high2){
                     PlayerPrefs.SetInt("HighLevel2", finalScore);
-                    if(finalScore < 4)
-                    {
-                     GameObject.Find("Star2").SetActive(false);
-                    }
-                    if(finalScore < 8)
-                    {
-                     GameObject.Find("Star3").SetActive(false);
-                    }
+                }
+                if(finalScore < 5)
+                {
+                    GameObject.Find("StarLevel2").SetActive(false);
+                }
+                if(finalScore < 8)
+                {
+                    GameObject.Find("StarLevel3").SetActive(false);
                 }
                 PlayerPrefs.SetInt("LevelsUnlocked", last2 + 1);
                 
@@ -78,16 +86,15 @@ public class ScoreLoader : MonoBehaviour
                 int high3 = PlayerPrefs.GetInt("HighLevel3", 0);
                 if(finalScore > high3){
                     PlayerPrefs.SetInt("HighLevel3", finalScore);
-                    if(finalScore < 4)
-                    {
-                     GameObject.Find("Star2").SetActive(false);
-                    }
-                    if(finalScore < 8)
-                    {
-                     GameObject.Find("Star3").SetActive(false);
-                    }
-                }             
-                
+                }
+                if(finalScore < 7)
+                {
+                    GameObject.Find("StarGame2").SetActive(false);
+                }
+                if(finalScore < 10)
+                {
+                    GameObject.Find("StarGame3").SetActive(false);
+                }       
             }
 
         }else{

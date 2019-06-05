@@ -10,6 +10,8 @@ public class EnemyFollow : BaseCharacterMovement{
 	public RotateGrid rotateGrid;
     private Transform _target;
 
+	private Interaction _Interact;
+
 	public GameObject left;
 
 	public GameObject right;
@@ -18,19 +20,23 @@ public class EnemyFollow : BaseCharacterMovement{
 
 	public GameObject wall;
 
+	public bool _isAlive;
+
 	void Start(){
+		_isAlive = true;
 		rotateGrid = GameObject.Find("Grid").GetComponent<RotateGrid>();
 		left = GameObject.Find("LeftCheck");
 		right = GameObject.Find("RightCheck");
         _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+		_Interact = GameObject.Find("Player").GetComponent<Interaction>();
         _spikes = GameObject.FindGameObjectsWithTag("danger");
 		button = GameObject.FindGameObjectWithTag("button");
-		wall = GameObject.FindGameObjectWithTag("wall");
+		wall = GameObject.Find("Wall");
 	}
 
     void Update(){
 
-		if (Vector3.Distance(_target.position, transform.position) <= 4.0f && !rotateGrid.is_Rotating){
+		if (Vector3.Distance(_target.position, transform.position) <= 5.0f && !rotateGrid.is_Rotating && _Interact._isDead == false){
 			//Check if the rays hit 
 			if(Physics2D.Raycast(left.transform.position, Vector2.down, 0.01f))
 			{
@@ -50,7 +56,7 @@ public class EnemyFollow : BaseCharacterMovement{
 			}
 
 
-		Flip((transform.position.x - _target.position.x) > 0f);
+		Flip((transform.position.x - _target.position.x) < 0f);
 
         }
     }
@@ -67,6 +73,7 @@ public class EnemyFollow : BaseCharacterMovement{
 
 	override protected void Kill(){
 		Destroy(gameObject);
+		_isAlive = false;
 	}
 
 	// override protected void Flip(bool flip){
