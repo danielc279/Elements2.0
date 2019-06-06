@@ -36,11 +36,11 @@ public class GameManager : MonoBehaviour {
 		{
 				GameObject.Find("Star11").SetActive(false);
 		}
-		if(PlayerPrefs.GetInt("HighLevel1", 0) < 6)
+		if(PlayerPrefs.GetInt("HighLevel1", 0) < 5)
 		{
 				GameObject.Find("Star12").SetActive(false);
 		}
-		if(PlayerPrefs.GetInt("HighLevel1", 0) < 9)
+		if(PlayerPrefs.GetInt("HighLevel1", 0) < 8)
 		{
 				GameObject.Find("Star13").SetActive(false);
 		}
@@ -49,11 +49,11 @@ public class GameManager : MonoBehaviour {
 		{
 				GameObject.Find("Star21").SetActive(false);
 		}
-		if(PlayerPrefs.GetInt("HighLevel2", 0) < 5)
+		if(PlayerPrefs.GetInt("HighLevel2", 0) < 6)
 		{
 				GameObject.Find("Star22").SetActive(false);
 		}
-		if(PlayerPrefs.GetInt("HighLevel2", 0) < 8)
+		if(PlayerPrefs.GetInt("HighLevel2", 0) < 9)
 		{
 				GameObject.Find("Star23").SetActive(false);
 		}	

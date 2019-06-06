@@ -43,11 +43,11 @@ public class ScoreLoader : MonoBehaviour
                     PlayerPrefs.SetInt("HighLevel1", finalScore);
                    
                 }
-                if(PlayerPrefs.GetInt("LastScore", 0) < 8)
+                if(PlayerPrefs.GetInt("LastScore", 0) < 5)
                 {
                     GameObject.Find("StarLevel2").SetActive(false);
                 }
-                if(PlayerPrefs.GetInt("LastScore", 0) < 11)
+                if(PlayerPrefs.GetInt("LastScore", 0) < 8)
                 {
                     GameObject.Find("StarLevel3").SetActive(false);
                 }
@@ -67,11 +67,11 @@ public class ScoreLoader : MonoBehaviour
                 if(finalScore > high2){
                     PlayerPrefs.SetInt("HighLevel2", finalScore);
                 }
-                if(finalScore < 5)
+                if(finalScore < 6)
                 {
                     GameObject.Find("StarLevel2").SetActive(false);
                 }
-                if(finalScore < 8)
+                if(finalScore < 9)
                 {
                     GameObject.Find("StarLevel3").SetActive(false);
                 }

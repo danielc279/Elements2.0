@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(TextMeshProUGUI))]
 public class Timer : MonoBehaviour
-{    public int timeLeft = 61;
+{    public int timeLeft = 181;
  
     void Start(){
 
